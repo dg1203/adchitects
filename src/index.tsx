@@ -1,15 +1,15 @@
-import React from 'react';
-import { createRoot } from 'react-dom/client';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import { createRoot } from "react-dom/client";
+import App from "./App";
+import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter } from "react-router-dom";
-import {QueryClient, QueryClientProvider } from 'react-query';
-import { ThemeProvider } from 'styled-components';
-import GlobalStyle from 'assets/styles/globalStyles';
-import theme from 'assets/styles/theme';
+import {QueryClient, QueryClientProvider } from "react-query";
+import { ThemeProvider } from "styled-components";
+import GlobalStyle from "assets/styles/globalStyles";
+import theme from "assets/styles/theme";
 
 const queryClient = new QueryClient();
-const container = document.getElementById('root') as Element;
+const container = document.getElementById("root") as Element;
 const root = createRoot(container);
 root.render(
   <React.StrictMode>

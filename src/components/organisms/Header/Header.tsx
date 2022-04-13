@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { IPage } from "types";
-import { ReactComponent as Logo } from 'assets/images/logo.svg';
+import { ReactComponent as Logo } from "assets/images/logo.svg";
 import { AppHeader } from "components/atoms/AppHeader";
 import { Container, ContainerLeft } from "components/atoms/Container";
 import { Button } from "components/atoms/Button";

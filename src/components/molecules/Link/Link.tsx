@@ -1,5 +1,5 @@
-import React from 'react';
-import { NavLink } from 'components/atoms/NavLink';
+import React from "react";
+import { NavLink } from "components/atoms/NavLink";
 
 interface IProps {
   url: string;

@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import { IPage } from "types";
 import Header from "components/organisms/Header";
 

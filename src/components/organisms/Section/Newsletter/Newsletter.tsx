@@ -1,38 +1,11 @@
-import React, { FormEvent, useState } from "react";
-import Api from "api";
-import { useMutation } from "react-query";
+import React from "react";
 import { NewsletterContainer, NewsletterTitle, NewsletterForm, ResponseMessage } from "components/atoms/Newsletter";
 import { Input } from "components/atoms/Input";
 import { Button } from "components/atoms/Button";
-import {AxiosError} from "axios";
+import useNewsletter from "./useNewsletter";
 
 const Newsletter: React.FC = () => {
-  const [email, setEmail] = useState<string>("");
-  const [message, setMessage] = useState<{ variant: string | null, text: string }>({
-    variant: null,
-    text: "",
-  });
-  const { mutate, isLoading } = useMutation(() => Api.sendEmail(email), {
-    onSuccess: (response: { data: { message: string } }) => {
-      const { data } = response;
-      setMessage({
-        variant: "success",
-        text: data.message,
-      });
-      setEmail("");
-    },
-    onError: (error: { response: { data: { message: string } } }) => {
-      const { data } = error.response;
-      setMessage({
-        variant: "error",
-        text: data.message,
-      });
-    }
-  })
-  const submit = (event: FormEvent) => {
-    event.preventDefault();
-    mutate();
-  }
+  const { message, email, setEmail, submit, isLoading } = useNewsletter();
   return (
     <NewsletterContainer>
       <NewsletterTitle>

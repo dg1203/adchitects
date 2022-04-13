@@ -1,4 +1,5 @@
 import axios from "axios";
+import { IPage, ISinglePage } from "types";
 
 const api = axios.create({
   baseURL: "https://adchitects-cms.herokuapp.com/",
@@ -8,8 +9,14 @@ const api = axios.create({
 });
 
 const Api = {
-  getPages: async () => api.get("pages"),
-  getPage: async (id: string) => api.get(`page/${id}`),
+  getPages: async () => {
+    const response = await api.get<IPage[]>("pages");
+    return response.data;
+  },
+  getPage: async (id: string) => {
+    const response = await api.get<ISinglePage>(`page/${id}`);
+    return response.data;
+  },
   sendEmail: async (email: string) => api.post("newsletter", { email }),
 }
 
